@@ -1,6 +1,6 @@
 # IWLZ Theme
 
-一个参考 [2Libra.com](https://2iwlz.com/) 设计风格的现代化 WordPress 主题。
+完全使用AI编写
 
 ## 主题特点
 
