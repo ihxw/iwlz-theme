@@ -1,5 +1,5 @@
 # IWLZ Theme
-在线查看地址 [http://iwlz.de](http://iwlz.de)    
+在线查看地址 [http://vps.iwlz.de](http://vps.iwlz.de)    
 完全使用AI编写，参考[2Libra](https://2libra.com/auth/signup/j1NxL1)
 
 ## 主题特点
