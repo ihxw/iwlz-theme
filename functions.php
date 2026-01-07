@@ -306,3 +306,39 @@ function iwlz_theme_comment($comment, $args, $depth)
         </article>
         <?php
 }
+
+/**
+ * 翻译 WordPress 核心小组件标题
+ */
+function iwlz_theme_translate_widget_title($title)
+{
+    // 如果标题为空,直接返回
+    if (empty($title)) {
+        return $title;
+    }
+
+    // 定义翻译映射
+    $translations = array(
+        'Recent Posts' => '最新文章',
+        'Recent Comments' => '最近评论',
+        'Archives' => '归档',
+        'Categories' => '分类',
+        'Meta' => '功能',
+        'Search' => '搜索',
+        'Pages' => '页面',
+        'Calendar' => '日历',
+        'Tag Cloud' => '标签云',
+        'Navigation Menu' => '导航菜单',
+        'Custom Menu' => '自定义菜单',
+        'RSS' => 'RSS',
+        'Text' => '文本',
+    );
+
+    // 如果标题在翻译映射中,返回翻译
+    if (isset($translations[$title])) {
+        return $translations[$title];
+    }
+
+    return $title;
+}
+add_filter('widget_title', 'iwlz_theme_translate_widget_title');
