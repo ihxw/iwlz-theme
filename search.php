@@ -73,7 +73,7 @@ get_header();
                     <?php endwhile; ?>
                 </ul>
 
-                <?php libra_theme_pagination(); ?>
+                <?php iwlz_theme_pagination(); ?>
 
             <?php else: ?>
                 <div class="card">

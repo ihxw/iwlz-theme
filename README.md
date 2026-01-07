@@ -1,6 +1,6 @@
-# Libra Theme
+# IWLZ Theme
 
-一个参考 [2Libra.com](https://2libra.com/) 设计风格的现代化 WordPress 主题。
+一个参考 [2Libra.com](https://2iwlz.com/) 设计风格的现代化 WordPress 主题。
 
 ## 主题特点
 
@@ -40,7 +40,7 @@
 1. 将 `iwlz-theme` 文件夹上传到 WordPress 安装目录的 `wp-content/themes/` 文件夹
 2. 登录 WordPress 后台
 3. 进入 **外观 > 主题**
-4. 找到 **Libra Theme** 并点击 **启用**
+4. 找到 **IWLZ Theme** 并点击 **启用**
 
 ## 主题配置
 
@@ -168,9 +168,6 @@
 
 本主题基于 [GPL v2 或更高版本](http://www.gnu.org/licenses/gpl-2.0.html) 许可证发布。
 
-## 致谢
-
-设计灵感来源于 [2Libra.com](https://2libra.com/)
 
 ## 支持
 
@@ -178,4 +175,4 @@
 
 ---
 
-**享受使用 Libra Theme！** 🎨✨
+**享受使用 IWLZ Theme！** 🎨✨

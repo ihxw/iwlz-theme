@@ -34,7 +34,7 @@ if (post_password_required()) {
                 'style' => 'ol',
                 'short_ping' => true,
                 'avatar_size' => 48,
-                'callback' => 'libra_theme_comment',
+                'callback' => 'iwlz_theme_comment',
             ));
             ?>
         </ol>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Libra Theme functions and definitions
+ * IWLZ Theme functions and definitions
  *
  * @package Libra_Theme
  */
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 /**
  * 设置主题
  */
-function libra_theme_setup()
+function iwlz_theme_setup()
 {
     // 加载翻译文件
     load_theme_textdomain('iwlz-theme', get_template_directory() . '/languages');
@@ -59,21 +59,21 @@ function libra_theme_setup()
     // 添加编辑器样式
     add_editor_style();
 }
-add_action('after_setup_theme', 'libra_theme_setup');
+add_action('after_setup_theme', 'iwlz_theme_setup');
 
 /**
  * 设置内容宽度
  */
-function libra_theme_content_width()
+function iwlz_theme_content_width()
 {
-    $GLOBALS['content_width'] = apply_filters('libra_theme_content_width', 960);
+    $GLOBALS['content_width'] = apply_filters('iwlz_theme_content_width', 960);
 }
-add_action('after_setup_theme', 'libra_theme_content_width', 0);
+add_action('after_setup_theme', 'iwlz_theme_content_width', 0);
 
 /**
  * 注册小工具区域
  */
-function libra_theme_widgets_init()
+function iwlz_theme_widgets_init()
 {
     register_sidebar(array(
         'name' => __('侧边栏', 'iwlz-theme'),
@@ -85,12 +85,12 @@ function libra_theme_widgets_init()
         'after_title' => '</h3>',
     ));
 }
-add_action('widgets_init', 'libra_theme_widgets_init');
+add_action('widgets_init', 'iwlz_theme_widgets_init');
 
 /**
  * 加载脚本和样式
  */
-function libra_theme_scripts()
+function iwlz_theme_scripts()
 {
     // 主样式表
     wp_enqueue_style('iwlz-theme-style', get_stylesheet_uri(), array(), '1.0.0');
@@ -99,37 +99,37 @@ function libra_theme_scripts()
     wp_enqueue_script('iwlz-theme-switcher', get_template_directory_uri() . '/js/theme-switcher.js', array(), '1.0.0', true);
 
     // 移动端搜索脚本
-    wp_enqueue_script('libra-mobile-search', get_template_directory_uri() . '/js/mobile-search.js', array(), '1.0.0', true);
+    wp_enqueue_script('iwlz-mobile-search', get_template_directory_uri() . '/js/mobile-search.js', array(), '1.0.0', true);
 
     // 评论回复脚本
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
 }
-add_action('wp_enqueue_scripts', 'libra_theme_scripts');
+add_action('wp_enqueue_scripts', 'iwlz_theme_scripts');
 
 /**
  * 自定义摘要长度
  */
-function libra_theme_excerpt_length($length)
+function iwlz_theme_excerpt_length($length)
 {
     return 60;
 }
-add_filter('excerpt_length', 'libra_theme_excerpt_length', 999);
+add_filter('excerpt_length', 'iwlz_theme_excerpt_length', 999);
 
 /**
  * 自定义摘要省略号
  */
-function libra_theme_excerpt_more($more)
+function iwlz_theme_excerpt_more($more)
 {
     return '...';
 }
-add_filter('excerpt_more', 'libra_theme_excerpt_more');
+add_filter('excerpt_more', 'iwlz_theme_excerpt_more');
 
 /**
  * 获取文章作者头像
  */
-function libra_theme_get_avatar_url($author_id)
+function iwlz_theme_get_avatar_url($author_id)
 {
     $avatar_url = get_avatar_url($author_id, array('size' => 96));
     return $avatar_url;
@@ -138,7 +138,7 @@ function libra_theme_get_avatar_url($author_id)
 /**
  * 获取文章评论数
  */
-function libra_theme_get_comments_number()
+function iwlz_theme_get_comments_number()
 {
     $num_comments = get_comments_number();
     if ($num_comments == 0) {
@@ -153,7 +153,7 @@ function libra_theme_get_comments_number()
 /**
  * 自定义分页
  */
-function libra_theme_pagination()
+function iwlz_theme_pagination()
 {
     global $wp_query;
 
@@ -179,7 +179,7 @@ function libra_theme_pagination()
 /**
  * 面包屑导航
  */
-function libra_theme_breadcrumb()
+function iwlz_theme_breadcrumb()
 {
     if (is_front_page()) {
         return;
@@ -211,7 +211,7 @@ function libra_theme_breadcrumb()
 /**
  * 添加主题自定义器设置
  */
-function libra_theme_customize_register($wp_customize)
+function iwlz_theme_customize_register($wp_customize)
 {
     // 添加主题颜色设置
     $wp_customize->add_setting('accent_color', array(
@@ -225,12 +225,12 @@ function libra_theme_customize_register($wp_customize)
         'settings' => 'accent_color',
     )));
 }
-add_action('customize_register', 'libra_theme_customize_register');
+add_action('customize_register', 'iwlz_theme_customize_register');
 
 /**
  * 输出自定义颜色 CSS
  */
-function libra_theme_customize_css()
+function iwlz_theme_customize_css()
 {
     $accent_color = get_theme_mod('accent_color', '#6419e6');
     ?>
@@ -243,15 +243,15 @@ function libra_theme_customize_css()
     </style>
     <?php
 }
-add_action('wp_head', 'libra_theme_customize_css');
+add_action('wp_head', 'iwlz_theme_customize_css');
 
 /**
  * 添加默认小工具
  */
-function libra_theme_default_widgets()
+function iwlz_theme_default_widgets()
 {
     // 检查是否已经设置过小工具
-    if (get_option('libra_theme_widgets_set')) {
+    if (get_option('iwlz_theme_widgets_set')) {
         return;
     }
 
@@ -272,14 +272,14 @@ function libra_theme_default_widgets()
     );
 
     // 标记为已设置
-    update_option('libra_theme_widgets_set', true);
+    update_option('iwlz_theme_widgets_set', true);
 }
-add_action('after_switch_theme', 'libra_theme_default_widgets');
+add_action('after_switch_theme', 'iwlz_theme_default_widgets');
 
 /**
  * 自定义评论列表
  */
-function libra_theme_comment($comment, $args, $depth)
+function iwlz_theme_comment($comment, $args, $depth)
 {
     $GLOBALS['comment'] = $comment;
     ?>

@@ -19,7 +19,7 @@ get_header();
                                 style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID(), 'large' ) ); ?>');"
                             <?php endif; ?>>
                         <div class="entry-header-content">
-                            <?php libra_theme_breadcrumb(); ?>
+                            <?php iwlz_theme_breadcrumb(); ?>
 
                             <h1 class="entry-title">
                                 <?php the_title(); ?>
@@ -46,7 +46,7 @@ get_header();
                                 </time>
 
                                 <span>💬
-                                    <?php echo libra_theme_get_comments_number(); ?>
+                                    <?php echo iwlz_theme_get_comments_number(); ?>
                                 </span>
                             </div>
                         </div>

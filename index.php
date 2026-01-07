@@ -62,7 +62,7 @@ get_header();
                                     </time>
 
                                     <span class="post-stats">
-                                        💬 <?php echo libra_theme_get_comments_number(); ?>
+                                        💬 <?php echo iwlz_theme_get_comments_number(); ?>
                                     </span>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ get_header();
                     <?php endwhile; ?>
                 </ul>
 
-                <?php libra_theme_pagination(); ?>
+                <?php iwlz_theme_pagination(); ?>
 
             <?php else: ?>
                 <div class="card">
