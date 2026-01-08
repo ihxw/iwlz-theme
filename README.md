@@ -2,6 +2,8 @@
 在线查看地址 [http://vps.iwlz.de](http://vps.iwlz.de)    
 完全使用AI编写，参考[2Libra](https://2libra.com/auth/signup/j1NxL1)
 
+![图片](img/1.png.png)
+
 ## 主题特点
 
 ### 🎨 现代简约设计
