@@ -92,14 +92,17 @@ add_action('widgets_init', 'iwlz_theme_widgets_init');
  */
 function iwlz_theme_scripts()
 {
+    // 获取主题版本号
+    $theme_version = wp_get_theme()->get('Version');
+
     // 主样式表
-    wp_enqueue_style('iwlz-theme-style', get_stylesheet_uri(), array(), '1.0.15');
+    wp_enqueue_style('iwlz-theme-style', get_stylesheet_uri(), array(), $theme_version);
 
     // 主题切换脚本
-    wp_enqueue_script('iwlz-theme-switcher', get_template_directory_uri() . '/js/theme-switcher.js', array(), '1.0.0', true);
+    wp_enqueue_script('iwlz-theme-switcher', get_template_directory_uri() . '/js/theme-switcher.js', array(), $theme_version, true);
 
     // 移动端搜索脚本
-    wp_enqueue_script('iwlz-mobile-search', get_template_directory_uri() . '/js/mobile-search.js', array(), '1.0.0', true);
+    wp_enqueue_script('iwlz-mobile-search', get_template_directory_uri() . '/js/mobile-search.js', array(), $theme_version, true);
 
     // 评论回复脚本
     if (is_singular() && comments_open() && get_option('thread_comments')) {
