@@ -4,7 +4,7 @@ Theme URI: https://iwlz.de
 Author: IWLZ
 Author URI: https://iwlz.de
 Description: 一个现代化 WordPress 主题，支持深色/浅色模式切换，采用卡片式布局和优雅的交互效果。
-Version: 1.0.10
+Version: 1.0.15
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: iwlz-theme
@@ -785,27 +785,52 @@ a:hover {
 
     justify-content: center;
 
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+
+    margin-bottom: var(--spacing-xl);
 
 }
 
 
 
-.pagination .page-numbers {
 
-    display: flex;
+.pagination .page-numbers,
+.pagination ul.page-numbers {
+    width: 100%;
+    display: flex !important;
 
     flex-wrap: wrap;
 
-    justify-content: center;
+    justify-content: center !important;
 
-    list-style: none;
+    align-items: center !important;
 
-    padding: 0;
+    list-style: none !important;
 
-    margin: 0;
+    list-style-type: none !important;
 
-    gap: var(--spacing-sm);
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    gap: var(--spacing-xs);
+
+}
+
+
+
+.pagination .page-numbers li,
+.pagination ul.page-numbers li {
+
+    display: inline-flex !important;
+
+    list-style: none !important;
+
+    list-style-type: none !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
 
 }
 
@@ -817,67 +842,59 @@ a:hover {
 
 .pagination .page-numbers span {
 
-
-
     display: inline-flex;
-
-
 
     align-items: center;
 
-
-
     justify-content: center;
 
-
-
-    padding: var(--spacing-sm) var(--spacing-md);
-
-
+    padding: 0;
 
     border: 1px solid var(--border-color);
 
-
-
     border-radius: var(--radius-md);
-
-
 
     background-color: var(--bg-secondary);
 
-
-
     color: var(--text-secondary);
-
-
 
     font-size: 0.875rem;
 
-
+    font-weight: 500;
 
     line-height: 1;
 
-
-
     text-decoration: none;
-
-
 
     transition: all var(--transition-fast);
 
-
-
     min-width: 40px;
-
-
 
     min-height: 40px;
 
+    cursor: pointer;
 
+    position: relative;
+
+    overflow: hidden;
 
 }
 
 
+
+/* 数字按钮特殊样式 */
+
+.pagination .page-numbers a:not(.prev):not(.next),
+
+.pagination .page-numbers span:not(.prev):not(.next):not(.current):not(.dots) {
+
+    font-weight: 600;
+
+}
+
+
+
+/* 悬停效果 */
 
 .pagination .page-numbers a:hover {
 
@@ -885,15 +902,21 @@ a:hover {
 
     color: var(--accent-color);
 
-    background-color: var(--bg-hover);
+    background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-secondary) 100%);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 12px rgba(100, 25, 230, 0.15);
 
 }
 
 
 
+/* 当前页样式 */
+
 .pagination .page-numbers .current {
 
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #7c3aed 100%);
 
     color: white;
 
@@ -901,7 +924,92 @@ a:hover {
 
     cursor: default;
 
+    font-weight: 700;
+
+    box-shadow: 0 4px 12px rgba(100, 25, 230, 0.25);
+
+    transform: translateY(-1px);
+
 }
+
+
+
+/* 省略号样式 */
+
+.pagination .page-numbers .dots {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    cursor: default;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+.pagination .page-numbers .dots:hover {
+
+    transform: none;
+
+    box-shadow: none;
+
+    background: transparent;
+
+}
+
+
+
+/* 上一页/下一页按钮 */
+
+.pagination .page-numbers .prev,
+
+.pagination .page-numbers .next {
+
+    padding: 0 var(--spacing-md);
+
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-hover) 100%);
+
+    font-weight: 600;
+
+}
+
+
+
+.pagination .page-numbers .prev svg,
+
+.pagination .page-numbers .next svg {
+
+    width: 16px;
+
+    height: 16px;
+
+    display: block;
+
+}
+
+
+
+.pagination .page-numbers .prev:hover,
+
+.pagination .page-numbers .next:hover {
+
+    background: linear-gradient(135deg, var(--accent-color) 0%, #7c3aed 100%);
+
+    color: white;
+
+    border-color: var(--accent-color);
+
+    box-shadow: 0 4px 12px rgba(100, 25, 230, 0.25);
+
+}
+
 
 /* ========================================
    评论区
@@ -1372,15 +1480,32 @@ a:hover {
 
     /* 分页移动端 */
     .pagination {
-        flex-wrap: wrap;
-        gap: var(--spacing-xs);
+        margin-top: var(--spacing-xl);
+        margin-bottom: var(--spacing-md);
     }
 
-    .pagination a,
-    .pagination span {
-        padding: var(--spacing-xs) var(--spacing-sm);
-        font-size: 0.75rem;
+    .pagination .page-numbers {
+        gap: 6px;
     }
+
+    .pagination .page-numbers a,
+    .pagination .page-numbers span {
+        min-width: 36px;
+        min-height: 36px;
+        font-size: 0.8125rem;
+    }
+
+    .pagination .page-numbers .prev,
+    .pagination .page-numbers .next {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .pagination .page-numbers .prev svg,
+    .pagination .page-numbers .next svg {
+        width: 14px;
+        height: 14px;
+    }
+
 }
 
 /* 小屏幕移动设备 */

@@ -93,7 +93,7 @@ add_action('widgets_init', 'iwlz_theme_widgets_init');
 function iwlz_theme_scripts()
 {
     // 主样式表
-    wp_enqueue_style('iwlz-theme-style', get_stylesheet_uri(), array(), '1.0.0');
+    wp_enqueue_style('iwlz-theme-style', get_stylesheet_uri(), array(), '1.0.15');
 
     // 主题切换脚本
     wp_enqueue_script('iwlz-theme-switcher', get_template_directory_uri() . '/js/theme-switcher.js', array(), '1.0.0', true);
@@ -164,17 +164,21 @@ function iwlz_theme_pagination()
         'format' => '?paged=%#%',
         'current' => max(1, get_query_var('paged')),
         'total' => $wp_query->max_num_pages,
-        'prev_text' => __('« 上一页', 'iwlz-theme'),
-        'next_text' => __('下一页 »', 'iwlz-theme'),
+        'prev_text' => '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        'next_text' => '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
         'type' => 'list',
+        'mid_size' => 2,
+        'end_size' => 1,
+        'show_all' => false,
     ));
 
     if ($paginate_links) {
-        echo '<nav class="pagination" role="navigation">';
+        echo '<nav class="pagination" role="navigation" aria-label="分页导航">';
         echo $paginate_links;
         echo '</nav>';
     }
 }
+
 
 /**
  * 面包屑导航
