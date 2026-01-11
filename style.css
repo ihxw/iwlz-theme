@@ -4,7 +4,7 @@ Theme URI: https://iwlz.de
 Author: IWLZ
 Author URI: https://iwlz.de
 Description: 一个现代化 WordPress 主题，支持深色/浅色模式切换，采用卡片式布局和优雅的交互效果。
-Version: 1.0.7
+Version: 1.0.8
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: iwlz-theme
@@ -781,6 +781,7 @@ a:hover {
     gap: var(--spacing-sm);
     margin-top: var(--spacing-xl);
 }
+
 .pagination .page-numbers {
     width: 100%;
     display: flex;
@@ -792,6 +793,15 @@ a:hover {
     /* 可选：去掉默认的内边距 */
     margin: 0;
     /* 可选：去掉默认的外边距 */
+}
+.pagination .page-numbers .page-numbers{
+    width: 30px;
+}
+.pagination .page-numbers .prev.page-numbers{
+    width: 80px;
+}
+.pagination .page-numbers .next.page-numbers{
+    width: 80px;
 }
 .pagination a,
 .pagination span {
@@ -1393,4 +1403,3 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-
