@@ -154,6 +154,24 @@ function iwlz_theme_get_comments_number()
 }
 
 /**
+ * 文章阅读次数统计
+ */
+function get_post_views($post_id = 0) {
+    if (!$post_id) $post_id = get_the_ID();
+    $views = get_post_meta($post_id, 'post_views', true);
+    return $views ? (int)$views : 0;
+}
+
+function set_post_views($post_id = 0) {
+    if (!$post_id) $post_id = get_the_ID();
+    $views = (int)get_post_meta($post_id, 'post_views', true);
+    update_post_meta($post_id, 'post_views', $views + 1);
+}
+add_action('wp_head', function() {
+    if (is_single()) set_post_views();
+});
+
+/**
  * 自定义分页
  */
 function iwlz_theme_pagination()
