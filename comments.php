@@ -1,33 +1,31 @@
 <?php
 /**
- * 评论模板
+ * Comments template.
  *
- * @package Libra_Theme
+ * @package IWLZ_Theme
  */
 
 if (post_password_required()) {
     return;
 }
 ?>
-
-<div id="comments" class="comments-area">
-    <?php if (have_comments()): ?>
-        <h2 class="comments-title">
-            <?php
-            $comment_count = get_comments_number();
-            if ('1' === $comment_count) {
+<section id="comments" class="comments-area joe-panel">
+    <header class="comments-header">
+        <h2 class="panel-title">
+            <?php echo iwlz_theme_icon('message'); ?>
+            <span>
+                <?php
                 printf(
-                    esc_html__('1 条评论', 'iwlz-theme')
+                    esc_html(_n('%s 条评论', '%s 条评论', get_comments_number(), 'iwlz-theme')),
+                    esc_html(number_format_i18n(get_comments_number()))
                 );
-            } else {
-                printf(
-                    esc_html(_nx('%1$s 条评论', '%1$s 条评论', $comment_count, 'comments title', 'iwlz-theme')),
-                    number_format_i18n($comment_count)
-                );
-            }
-            ?>
+                ?>
+            </span>
         </h2>
+        <p><?php esc_html_e('欢迎留下你的想法。', 'iwlz-theme'); ?></p>
+    </header>
 
+    <?php if (have_comments()) : ?>
         <ol class="comment-list">
             <?php
             wp_list_comments(array(
@@ -39,23 +37,21 @@ if (post_password_required()) {
             ?>
         </ol>
 
-        <?php
-        the_comments_navigation();
+        <?php the_comments_navigation(); ?>
+    <?php endif; ?>
 
-        if (!comments_open()):
-            ?>
-            <p class="no-comments">
-                <?php esc_html_e('评论已关闭。', 'iwlz-theme'); ?>
-            </p>
-            <?php
-        endif;
+    <?php if (!comments_open() && get_comments_number()) : ?>
+        <p class="no-comments"><?php esc_html_e('评论已关闭。', 'iwlz-theme'); ?></p>
+    <?php endif; ?>
 
-    endif;
-
+    <?php
     comment_form(array(
+        'title_reply' => __('发表评论', 'iwlz-theme'),
         'title_reply_before' => '<h3 id="reply-title" class="comment-reply-title">',
         'title_reply_after' => '</h3>',
-        'class_submit' => 'btn btn-primary',
+        'label_submit' => __('提交评论', 'iwlz-theme'),
+        'class_submit' => 'submit button',
+        'comment_notes_before' => '<p class="comment-notes">' . esc_html__('电子邮箱不会被公开，必填项已标注。', 'iwlz-theme') . '</p>',
     ));
     ?>
-</div>
+</section>
